@@ -17,7 +17,7 @@ class Api::V1::ProductsController < ApplicationController
             render json: {status: 500, data: product.errors}
         end
     end
-
+    
     def update
         @product = Product.find(params[:id])
         if @product.update
