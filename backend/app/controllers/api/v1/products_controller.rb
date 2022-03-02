@@ -23,6 +23,7 @@ class Api::V1::ProductsController < ApplicationController
         @product.destroy
         render json: {status:"ok",message:"success"}
     end
+
     
     def update
         @product = Product.find(params[:id])
