@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_01_034022) do
     t.string "loadmap"
     t.integer "day"
     t.string "commitment"
+    t.string "reason"
     t.text "link"
     t.text "github"
     t.string "how"
