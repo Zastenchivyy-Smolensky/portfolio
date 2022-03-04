@@ -21,7 +21,7 @@ function Edit() {
     const query = useParams()
 
     const history = useHistory()
-    
+
     useEffect(() => {
         handleGetData(query)
     },[query])
@@ -76,5 +76,6 @@ function Edit() {
     </div>
   )
 }
+
 
 export default Edit
