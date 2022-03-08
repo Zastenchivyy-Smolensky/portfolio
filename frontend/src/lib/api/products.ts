@@ -12,5 +12,5 @@ export const EditProduct = (data: Product, id:number) =>{
     return  client.patch(`/products/${id}`)
 }
 export const deleteProduct = (id: number) => {
-    return client.delete(`/product/${id}`)
+    return client.delete(`/products/${id}`)
 }

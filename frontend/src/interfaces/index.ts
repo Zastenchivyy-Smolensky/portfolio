@@ -1,7 +1,7 @@
 export interface Product {
     id?: number
     title:string
-    image:string
+    tech:string
     reason:string
     thoughts:string
     loadmap:string

@@ -14,12 +14,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_01_034022) do
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "image"
+    t.string "reason"
     t.string "thoughts"
     t.string "tech"
     t.string "loadmap"
     t.integer "day"
     t.string "commitment"
-    t.string "reason"
     t.text "link"
     t.text "github"
     t.string "how"
