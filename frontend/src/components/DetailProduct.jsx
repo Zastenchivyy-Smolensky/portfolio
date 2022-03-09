@@ -29,6 +29,13 @@ const DetailProduct = (props) => {
       <div>ID:{data.id}</div>
       <div>アプリの名前:{data.title }</div>
       <div>理由:{data.reason }</div>
+      <div>感想:{data.thoughts}</div>
+      <div>技術{data.tech}</div>
+      <div>期間{data.day}</div>
+      <div>こだわり{data.commitment}</div>
+      <div>リンク{data.link}</div>
+      <div>GitHubのリンク{data.github}</div>
+      <div>使い方{data.how}</div>
       <button onClick={() => history.push('/')}>戻る</button>
     </>
   );

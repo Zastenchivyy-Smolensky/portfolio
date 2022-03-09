@@ -38,8 +38,8 @@ const ProductList = () => {
       <table>
         <thead>
           <tr>
-            <th>名前</th>
-            <th>猫種</th>
+            <th>アプリ名前</th>
+            <th>理由</th>
             <th colSpan='1'></th>
             <th colSpan='1'></th>
             <th colSpan='1'></th>
