@@ -10,6 +10,12 @@ const Form = (props) => {
           <label htmlFor="title">アプリの名前</label><br />
           <input type="text" name="title" id="title" onChange={(e) => handleChange(e)} value={value.title || ""}/>
         </div>
+
+        <div>
+          <label htmlFor="image">画像</label>
+          <input type="file" name='image.url' id="image.url" onChange={(e)=> handleChange(e)} value={value.image || ""} />
+        </div>
+
         <div>
           <label htmlFor="reason">理由</label><br />
           <input type="text" name="reason" id="reason" onChange={(e) => handleChange(e)} value={value.reason || ""}/>

@@ -8,6 +8,7 @@ const DetailProduct = (props) => {
   const history = useHistory();
 
 
+
   useEffect(() => {
     handleGetDetail(query);
   }, [query]);
@@ -28,6 +29,7 @@ const DetailProduct = (props) => {
       <h1>DETAIL</h1>
       <div>ID:{data.id}</div>
       <div>アプリの名前:{data.title }</div>
+      <div>画像</div><img src={data.image} alt="画像" />
       <div>理由:{data.reason }</div>
       <div>感想:{data.thoughts}</div>
       <div>技術{data.tech}</div>

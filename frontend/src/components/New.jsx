@@ -3,18 +3,20 @@ import React, { useState } from 'react';
 import FormBody from './Form';
 import { createPost } from '../lib/api/product';
 import { useHistory } from 'react-router-dom';
+import { useFileUpload } from "use-file-upload";
 
 const New = () => {
+  const [image, setImage] = useState([])
   const [value, setValue] = useState({})
   const history = useHistory();
-
+ 
   const handleChange = (e) => {
     setValue({
       ...value,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
