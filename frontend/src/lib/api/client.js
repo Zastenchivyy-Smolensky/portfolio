@@ -10,9 +10,6 @@ const options = {
 const client = applyCaseMiddleware(
   axios.create({
     baseURL: "http://localhost:3000/api/v1",
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
   }),
   options
 );

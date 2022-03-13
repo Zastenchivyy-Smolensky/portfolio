@@ -1,9 +1,9 @@
 // post.js
-import client from './client';
+import client from "./client";
 
 // 一覧
 export const getList = () => {
-  return client.get('/products');
+  return client.get("/products");
 };
 
 // 詳細
@@ -13,7 +13,7 @@ export const getDetail = (id) => {
 
 // 新規作成
 export const createPost = (params) => {
-  return client.post('/products', params);
+  return client.post("/products", params);
 };
 
 // 更新

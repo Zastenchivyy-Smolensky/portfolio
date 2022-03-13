@@ -1,14 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
-import ProductList from './components/ProductList';
-import DetailProduct from './components/DetailProduct';
-import New from './components/New';
-import Edit from './components/Edit';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ProductList from "./components/ProductList";
+import DetailProduct from "./components/DetailProduct";
+import New from "./components/New";
+import Edit from "./components/Edit";
 function App() {
   return (
     <div className="App">

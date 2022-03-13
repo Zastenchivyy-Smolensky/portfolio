@@ -1,10 +1,10 @@
 // List.jsx
-import React, { useEffect, useState } from 'react';
-import { deletePost,getList } from '../lib/api/product';
-import { useHistory, Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { deletePost, getList } from "../lib/api/product";
+import { useHistory, Link } from "react-router-dom";
 
 const ProductList = () => {
-  const history = useHistory()
+  const history = useHistory();
   const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
@@ -20,29 +20,29 @@ const ProductList = () => {
       console.log(e);
     }
   };
-  const handleDelete = async(item) =>{
+  const handleDelete = async (item) => {
     console.log("click", item.id);
-    try{
-        const res = await deletePost(item.id)
-        console.log(res.data);
-        history.push("/")
-        handleGetList()
-    }catch(e){
-        console.log(e);
+    try {
+      const res = await deletePost(item.id);
+      console.log(res.data);
+      history.push("/");
+      handleGetList();
+    } catch (e) {
+      console.log(e);
     }
-}
+  };
   return (
     <>
       <h1>HOME</h1>
-      <button onClick={() =>  history.push("/new")}>新規作成</button>
+      <button onClick={() => history.push("/new")}>新規作成</button>
       <table>
         <thead>
           <tr>
             <th>アプリ名前</th>
             <th>理由</th>
-            <th colSpan='1'></th>
-            <th colSpan='1'></th>
-            <th colSpan='1'></th>
+            <th colSpan="1"></th>
+            <th colSpan="1"></th>
+            <th colSpan="1"></th>
           </tr>
         </thead>
         {dataList.map((item, index) => (
@@ -57,7 +57,7 @@ const ProductList = () => {
                 <Link to={`/product/${item.id}`}>詳細へ</Link>
               </td>
               <td>
-              <button onClick={() => handleDelete(item)}>削除</button>
+                <button onClick={() => handleDelete(item)}>削除</button>
               </td>
             </tr>
           </tbody>
