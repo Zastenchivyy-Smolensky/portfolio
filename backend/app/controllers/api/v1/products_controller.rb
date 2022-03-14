@@ -1,7 +1,6 @@
 class Api::V1::ProductsController < ApplicationController
     def index
-        products = Product.all
-        render json: products
+        render json: { products: Product.all.order("created_at DESC") }
     end
 
     def show
@@ -10,12 +9,8 @@ class Api::V1::ProductsController < ApplicationController
     end
 
     def create
-        product = Product.new(product_params)
-        if product.save
-            render json: product
-        else
-            render json: product.errors
-        end
+        product = Product.new(product_params)  
+        product.save
     end
     
     def destroy
