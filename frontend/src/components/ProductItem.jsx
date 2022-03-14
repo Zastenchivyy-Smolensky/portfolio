@@ -58,6 +58,7 @@ const PostItem = ({ product, handleGetPosts }) => {
           <CardMedia component="img" src={product.image.url} alt="post image" />
         ) : null}
         <CardContent>
+          title:
           <Typography variant="body2" color="textSecondary" component="span">
             {product.title.split("¥n").map((title, index) => {
               return <p key={index}>{title}</p>;
