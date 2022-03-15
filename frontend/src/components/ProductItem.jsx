@@ -50,7 +50,9 @@ const PostItem = ({ product, handleGetPosts }) => {
           avatar={<Avatar>U</Avatar>}
           action={
             <IconButton>
-              <MoreVertIcon />
+              <Link to={`/edit/${product.id}`}>
+                <MoreVertIcon />
+              </Link>
             </IconButton>
           }
           title="User Name"
