@@ -15,7 +15,8 @@ import ShareIcon from "@material-ui/icons/Share";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { deleteProducts } from "../lib/api/products";
-
+import { Link } from "react-router-dom";
+import Box from "@material-ui/core/Box";
 const useStyles = makeStyles(() => ({
   card: {
     width: 320,
@@ -54,17 +55,24 @@ const PostItem = ({ product, handleGetPosts }) => {
           }
           title="User Name"
         />
-        {product.image?.url ? (
-          <CardMedia component="img" src={product.image.url} alt="post image" />
-        ) : null}
-        <CardContent>
-          title:
-          <Typography variant="body2" color="textSecondary" component="span">
-            {product.title.split("¥n").map((title, index) => {
-              return <p key={index}>{title}</p>;
-            })}
-          </Typography>
-        </CardContent>
+        <Box sx={{ border: 1 }}>
+          {product.image?.url ? (
+            <CardMedia
+              component="img"
+              src={product.image.url}
+              alt="post image"
+            />
+          ) : null}
+        </Box>
+        <Link to={`/product/${product.id}}`}>
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="span">
+              {product.title.split("¥n").map((title, index) => {
+                return <p key={index}>{title}</p>;
+              })}
+            </Typography>
+          </CardContent>
+        </Link>
         <CardActions disableSpacing>
           <IconButton onClick={() => (like ? setLike(false) : setLike(true))}>
             {like ? <FavoriteIcon /> : <FavoriteBorderIcon />}
