@@ -11,7 +11,7 @@ export const createProducts = (params) => {
   return client.post("/products", params);
 };
 export const editProducts = (id, params) => {
-  return client.patch(`/products/${id}`, params);
+  return client.put(`/products/${id}`, params);
 };
 export const deleteProducts = (id) => {
   return client.delete(`products/${id}`);

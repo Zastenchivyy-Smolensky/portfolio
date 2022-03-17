@@ -7,7 +7,7 @@ class Api::V1::ProductsController < ApplicationController
         @product = Product.find(params[:id])
         render json: @product
     end
-
+    
     def create
         product = Product.new(product_params)  
         product.save
@@ -18,14 +18,14 @@ class Api::V1::ProductsController < ApplicationController
         @product.destroy
         render json: {status:"ok",message:"success"}
     end
-
     
     def update
-        @product = Product.find(params[:id])
-        if @product.update(product_params)
-            render json: @product
+        @product.title=product_params[:title]
+        @product.image = product_params[:image] if product_params[:image] != ""
+        if @prodocut.save
+            render json: {status: 200, product: @product}
         else
-            render json: @product.errors
+            render json: {status: 500, message:"更新に失敗"}
         end
     end
     

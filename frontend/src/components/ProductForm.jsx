@@ -72,7 +72,7 @@ function ProductForm({ handleGetPost }) {
     <div>
       <form className={classes.form} noValidate onSubmit={handleCreatePost}>
         <TextField
-          placeholder="hello"
+          placeholder="title"
           variant="outlined"
           multiline
           fullwidth="true"
