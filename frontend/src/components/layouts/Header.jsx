@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   title: {
+    flexGrow: 1,
     flexDecoration: "none",
     color: "inherit",
   },
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Header() {
-  const { loading, isSignedIn, setIsSignedIs } = useContext(AuthContext);
+  const { loading, isSignedIn, setIsSignedIn } = useContext(AuthContext);
   const classes = useStyles();
   const history = useHistory();
 
@@ -35,7 +36,7 @@ function Header() {
         Cookies.remove("_access_token");
         Cookies.remove("_client");
         Cookies.remove("_uid");
-        setIsSignedIs(false);
+        setIsSignedIn(false);
         history.push("/signin");
         console.log("succeeed in sign out");
       } else {
