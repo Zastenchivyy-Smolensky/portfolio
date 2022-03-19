@@ -12,6 +12,7 @@ import { createContext, useEffect, useState } from "react";
 import { getCurrentUser } from "./lib/api/auth";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
+import CommonLayout from "./components/layouts/CommonLayout";
 
 export const AuthContext = createContext();
 
@@ -51,28 +52,30 @@ function App() {
     }
   };
   return (
-    <AuthContext.Provider
-      value={{
-        loading,
-        setLoading,
-        isSignedIn,
-        setIsSignedIn,
-        currentUser,
-        setCurrentUser,
-      }}
-    >
-      <Router>
-        <Switch>
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/signin" component={SignIn} />
-          <Private>
-            <Route exact path="/" component={ProductList} />
-            <Route path="/product/:id" component={DetailProduct} />
-            <Route path="/edit/:id" component={Edit} />
-          </Private>
-        </Switch>
-      </Router>
-    </AuthContext.Provider>
+    <Router>
+      <AuthContext.Provider
+        value={{
+          loading,
+          setLoading,
+          isSignedIn,
+          setIsSignedIn,
+          currentUser,
+          setCurrentUser,
+        }}
+      >
+        <CommonLayout>
+          <Switch>
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/signin" component={SignIn} />
+            <Private>
+              <Route exact path="/" component={ProductList} />
+              <Route path="/product/:id" component={DetailProduct} />
+              <Route path="/edit/:id" component={Edit} />
+            </Private>
+          </Switch>
+        </CommonLayout>
+      </AuthContext.Provider>
+    </Router>
   );
 }
 
