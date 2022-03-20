@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -10,6 +10,7 @@ import { AuthContext } from "../../App";
 import { Link, useHistory } from "react-router-dom";
 import { signOut } from "../../lib/api/auth";
 import Cookies from "js-cookie";
+import HeaderDrawer from "./HeaderDrawer";
 
 const useStyles = makeStyles((theme) => ({
   IconButton: {
@@ -24,8 +25,14 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
   },
 }));
+const drawerItem = [
+  { label: "一覧へ戻る", path: "/" },
+  { label: "新規作成", path: "/new" },
+  { label: "自分の投稿", path: "/users/products" },
+];
 function Header() {
-  const { loading, isSignedIn, setIsSignedIn } = useContext(AuthContext);
+  const { loading, isSignedIn, setIsSignedIn, currentUser } =
+    useContext(AuthContext);
   const classes = useStyles();
   const history = useHistory();
 
@@ -84,17 +91,26 @@ function Header() {
       return <></>;
     }
   };
+  const [open, setOpen] = useState(false);
+  const handleDrawerToggle = () => {
+    setOpen(!open);
+  };
   return (
-    <div>
+    <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.IconButton}
-            color="inherit"
-          >
-            <MenuIcon />
-          </IconButton>
+          {isSignedIn && currentUser && (
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+
           <Typography
             component={Link}
             to="/"
@@ -106,6 +122,11 @@ function Header() {
           <AuthButtons />
         </Toolbar>
       </AppBar>
+      <HeaderDrawer
+        open={open}
+        handleDrawerToggle={handleDrawerToggle}
+        drawerItem={drawerItem}
+      />
     </div>
   );
 }

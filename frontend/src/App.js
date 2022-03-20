@@ -13,6 +13,7 @@ import { getCurrentUser } from "./lib/api/auth";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
 import CommonLayout from "./components/layouts/CommonLayout";
+import UserPost from "./components/users/UserPost";
 
 export const AuthContext = createContext();
 
@@ -71,6 +72,7 @@ function App() {
               <Route exact path="/" component={ProductList} />
               <Route path="/product/:id" component={DetailProduct} />
               <Route path="/edit/:id" component={Edit} />
+              <Route path="/user/products" compoent={UserPost} />
             </Private>
           </Switch>
         </CommonLayout>

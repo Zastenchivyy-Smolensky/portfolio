@@ -41,6 +41,7 @@ function SignIn() {
   const confirmSuccessUrl = "http://localhost:3001";
   const generateParams = () => {
     const signUpParams = {
+      name: name,
       email: email,
       password: password,
       passwordConfirmation: passwordConfirmation,
