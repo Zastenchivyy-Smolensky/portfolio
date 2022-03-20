@@ -33,8 +33,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const PostItem = ({ product, handleGetPosts }) => {
+const PostItem = ({ product, handleGetPosts, props }) => {
   const classes = useStyles();
+
   const [like, setLike] = useState(false);
 
   const handleDeletePost = async (id) => {

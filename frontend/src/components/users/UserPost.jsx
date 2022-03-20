@@ -1,10 +1,12 @@
 import { Button } from "@material-ui/core";
+import { async } from "q";
 import React, { useContext, useEffect, useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { AuthContext } from "../../App";
+import { deleteProducts } from "../../lib/api/products";
 import { getUserProducts } from "../../lib/api/user";
 import ProductList from "../ProductList";
-
+import ProductItem from "../ProductItem";
 function UserPost() {
   const { loading, isSignedIn, currentUser } = useContext(AuthContext);
   const [userProducts, setUserProducts] = useState({});
@@ -24,10 +26,26 @@ function UserPost() {
       }
     }
   };
+  const handleDelete = async (item) => {
+    console.log("click", item.id);
+    try {
+      const res = await deleteProducts(item.id);
+      console.log(res.data);
+      handleGetUserProducts();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const UserTable = () => {
     if (userProducts.length >= 1) {
-      return <ProductList />;
+      return (
+        <ProductItem
+          dataList={userProducts}
+          handleDelete={handleDelete}
+          currentUser={currentUser}
+        />
+      );
     } else {
       return <h2>投稿はありません</h2>;
     }

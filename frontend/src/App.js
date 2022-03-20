@@ -68,12 +68,12 @@ function App() {
           <Switch>
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/signin" component={SignIn} />
-            <Private>
-              <Route exact path="/" component={ProductList} />
-              <Route path="/product/:id" component={DetailProduct} />
-              <Route path="/edit/:id" component={Edit} />
-              <Route path="/user/products" compoent={UserPost} />
-            </Private>
+            {/* <Private> */}
+            <Route exact path="/" component={ProductList} />
+            <Route path="/product/:id" component={DetailProduct} />
+            <Route path="/edit/:id" component={Edit} />
+            <Route path="/user/products" compoent={UserPost} />
+            {/* </Private> */}
           </Switch>
         </CommonLayout>
       </AuthContext.Provider>
